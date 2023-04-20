@@ -50,7 +50,6 @@ int main()
 	cout << endl;
 	LinkedList test = vectoLink(v);
 	test.PrintList();
-	test.addNode(5);
 	test.removeNode(3);
 	cout << "The list after removing 3 is " << endl;
 	test.PrintList();

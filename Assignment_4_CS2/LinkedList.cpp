@@ -70,16 +70,28 @@ void LinkedList::removeNode(int x)
         {
             if (temp->value == x)
             {
-                Node* temp2 = temp;
-                temp->before->next = temp->next;
-                temp->next->before = temp->before;
-                temp = temp->next;
-                delete temp2;
-                break;
+                if (temp->next != NULL)
+                {
+                    Node* temp2 = temp;
+                    temp->before->next = temp->next;
+                    temp->next->before = temp->before;
+                    temp = temp->next;
+                    delete temp2;
+                    break;
+                }
+                else
+                {
+                    Node* temp2 = temp;
+                    temp->before->next = NULL;
+                    temp = temp->next;
+                    delete temp2;
+                    break;
+                }
             }
             else
             {
                 temp = temp->next;
+            
             }
         }
     }
