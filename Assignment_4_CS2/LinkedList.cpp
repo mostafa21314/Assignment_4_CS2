@@ -42,6 +42,7 @@ void LinkedList::addNode(int x)
                 temp->next->value = x;
                 temp->next->before = temp;
                 temp->next->occur = occ;
+                break;
             }
             temp = temp->next;
         }
@@ -67,6 +68,7 @@ void LinkedList::removeNode(int x)
             {
                 Node* temp2 = temp;
                 temp->before->next = temp->next;
+                temp->next->before = temp->before;
                 temp = temp->next;
                 delete temp2;
             }
@@ -91,6 +93,7 @@ void LinkedList::PrintList() const
 }
 int LinkedList::sumList() const
 {
+
     int sum = 0;
     Node* temp = head;
     while (temp != NULL)

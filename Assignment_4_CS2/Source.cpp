@@ -2,6 +2,7 @@
 //Mostafa gaafar
 #include<iostream>
 #include<vector>
+#include"LinkedList.h"
 using namespace std;
 void insertAfter(vector<int> &vec, int v1, int v2)
 {
@@ -13,9 +14,21 @@ void insertAfter(vector<int> &vec, int v1, int v2)
 		}
 	}
 }
+
+LinkedList vectoLink(vector<int> x)
+{
+	LinkedList temp;
+	for (int i = 0; i < x.size(); i++)
+	{
+		temp.addNode(x[i]);
+
+	}
+	return temp;
+
+}
 int main()
 {
-	int n = 5;
+	/*int n = 5;
 	vector<int> v;
 	for (int i = 0; i < n; i++)
 	{
@@ -34,8 +47,12 @@ int main()
 	{
 		cout << v[i] << "  ";
 	}
-	cout << endl;
-
+	cout << endl;*/
+	LinkedList test;
+	test.addNode(2);
+	test.addNode(4);
+	test.addNode(7);
+	test.PrintList();
 
 	return 0;
 }
