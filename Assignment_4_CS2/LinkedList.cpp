@@ -35,9 +35,9 @@ void LinkedList::addNode(int x)
         {
             if (temp->value == x)
             {
+                occ = temp->occur;
                 exist = true;
-                occ++;
-                temp->occur == occ;
+                temp->occur = ++occ;
 
             }
             if (temp->next == NULL&&exist==false)
@@ -91,13 +91,14 @@ void LinkedList::PrintList() const
     Node* temp = head;
     cout << "The linked list contains : ";
     while (temp != NULL) {
-        cout << temp->value << " ";
+        cout << temp->value << ", ";
         temp = temp->next;
     }
     cout << endl;
+    temp = head;
     cout << "The occurance of each element : ";
     while (temp != NULL) {
-        cout << temp->occur<< " ";
+        cout << temp->occur<< ", ";
         temp = temp->next;
     }
     cout << endl;

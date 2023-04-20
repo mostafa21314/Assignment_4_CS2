@@ -28,7 +28,7 @@ LinkedList vectoLink(vector<int> x)
 }
 int main()
 {
-	/*int n = 5;
+	int n = 5;
 	vector<int> v;
 	for (int i = 0; i < n; i++)
 	{
@@ -47,16 +47,14 @@ int main()
 	{
 		cout << v[i] << "  ";
 	}
-	cout << endl;*/
-	LinkedList test;
-	test.addNode(2);
-	test.addNode(4);
-	test.addNode(7);
-	test.addNode(2);
+	cout << endl;
+	LinkedList test = vectoLink(v);
 	test.PrintList();
-	test.removeNode(2);
+	test.addNode(5);
+	test.removeNode(3);
+	cout << "The list after removing 3 is " << endl;
 	test.PrintList();
-	cout<<test.sumList();
+	cout << "The sum is " << test.sumList();
 
 	return 0;
 }
