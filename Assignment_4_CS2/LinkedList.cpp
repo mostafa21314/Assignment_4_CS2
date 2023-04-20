@@ -40,11 +40,44 @@ void LinkedList::addNode(int x)
             {
                 temp->next = new Node;
                 temp->next->value = x;
+                temp->next->before = temp;
                 temp->next->occur = occ;
             }
             temp = temp->next;
         }
     }
+}
+void LinkedList::removeNode(int x)
+{
+    if (head == NULL)
+        return;
+    if (head->value == x)
+    {
+        Node* temp = head;
+        head = head->next;
+        head->before = NULL;
+        delete temp;
+    }
+    else
+    {
+        Node* temp = head;
+        while (temp!=NULL)
+        {
+            if (temp->value == x)
+            {
+                Node* temp2 = temp;
+                temp->before->next = temp->next;
+                temp = temp->next;
+                delete temp2;
+            }
+            else
+            {
+                temp = temp->next;
+            }
+        }
+    }
+      
+    
 }
 void LinkedList::PrintList() const
 {
