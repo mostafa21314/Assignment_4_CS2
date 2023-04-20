@@ -29,14 +29,18 @@ void LinkedList::addNode(int x)
     else
     {
         int occ = 1;
+        bool exist = false;
         Node* temp = head;
         while (temp != NULL)
         {
             if (temp->value == x)
             {
+                exist = true;
                 occ++;
+                temp->occur == occ;
+
             }
-            if (temp->next == NULL)
+            if (temp->next == NULL&&exist==false)
             {
                 temp->next = new Node;
                 temp->next->value = x;
@@ -71,6 +75,7 @@ void LinkedList::removeNode(int x)
                 temp->next->before = temp->before;
                 temp = temp->next;
                 delete temp2;
+                break;
             }
             else
             {
@@ -84,9 +89,15 @@ void LinkedList::removeNode(int x)
 void LinkedList::PrintList() const
 {
     Node* temp = head;
+    cout << "The linked list contains : ";
     while (temp != NULL) {
-        cout << "The linked list contains : ";
         cout << temp->value << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+    cout << "The occurance of each element : ";
+    while (temp != NULL) {
+        cout << temp->occur<< " ";
         temp = temp->next;
     }
     cout << endl;
@@ -98,7 +109,7 @@ int LinkedList::sumList() const
     Node* temp = head;
     while (temp != NULL)
     {
-        sum += temp->value;
+        sum += temp->value*temp->occur;
         temp = temp->next;
     }
     return sum;

@@ -52,7 +52,11 @@ int main()
 	test.addNode(2);
 	test.addNode(4);
 	test.addNode(7);
+	test.addNode(2);
 	test.PrintList();
+	test.removeNode(2);
+	test.PrintList();
+	cout<<test.sumList();
 
 	return 0;
 }
